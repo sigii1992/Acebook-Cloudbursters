@@ -1,7 +1,10 @@
-<% @posts.each do |post| %>
-  <a href="/posts/<%= post.id %>">
-  <p><%= post.message %></p>
-<% end %>
+<ul style="list-style: none;">
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.message, post %>
+    </li>
+  <% end %>
+</ul>
 
 <%= link_to new_post_path do %>
   New post
