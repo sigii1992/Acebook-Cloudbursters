@@ -1,11 +1,12 @@
-<ul style="list-style: none;">
+<div>
   <% @posts.each do |post| %>
-    <li>
+    <div>
       <%= link_to post.message, post %>
-    </li>
+    </div><br>
   <% end %>
-</ul>
-
+</div>
+<br>
+<br>
 <%= link_to new_post_path do %>
   New post
 <% end %>
