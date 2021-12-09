@@ -8,4 +8,13 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
   end
+
+  scenario "Can click a post link to view individual post" do
+    visit "/posts"
+    click_link "New post"
+    fill_in "Message", with: "Test"
+    click_button "Submit"
+    click_link "Test"
+    expect(page).to have_content("Test")
+  end
 end
