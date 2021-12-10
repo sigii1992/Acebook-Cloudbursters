@@ -1,9 +1,9 @@
 <div>
   <% @posts.each do |post| %>
     <div>
-      <%= link_to post.message, post %>
+      <%= link_to post.message, post %><br>
       <% if post.image.attached? %>
-        <image src="<%=(url_for(post.image))%>">
+        <image class="image" src="<%=(url_for(post.image))%>">
       <% end %>
     </div><br>
   <% end %>

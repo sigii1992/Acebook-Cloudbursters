@@ -1,7 +1,7 @@
 <h2><%= @post.message %></h2>
 
 <% if @post.image.attached? %>
-  <image src="<%=(url_for(@post.image))%>">
+  <image class="image" src="<%=(url_for(@post.image))%>">
 <% end %>
 
 <h3>Comments</h3>

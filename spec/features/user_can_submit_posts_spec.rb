@@ -36,7 +36,6 @@ RSpec.feature "Timeline", type: :feature do
     fill_in "Message", with: "This is a post message"
     attach_file("post[image]", Rails.root + "spec/features/Test_images/test.png")
     click_button "Submit"
-    expect(page).to have_selector('img[src="/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c0f3e85e7e8d92afa5c7897c87039cbf1b817ef4/test.png"]')
-    # expect(page).to find("img[src^='/rails/active_storage']")
+    expect(page.find('.image')['src']).to have_content('test.png')
   end
 end
