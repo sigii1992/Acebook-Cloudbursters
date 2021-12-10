@@ -1,1 +1,5 @@
+<%= flash[:notice] %>
 <h1>Welcome to Acebook</h1>
+<% if @user %>
+Logged in as: <%= @user.email %>
+<% end %>
