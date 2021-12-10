@@ -17,4 +17,16 @@ RSpec.feature "Timeline", type: :feature do
     click_link "Test"
     expect(page).to have_content("Test")
   end
+
+  scenario "The posts are ordered from newest to oldest" do
+    visit "/posts"
+    click_link "New post"
+    fill_in "Message", with: "Test old"
+    click_button "Submit"
+    click_link "New post"
+    fill_in "Message", with: "Test new"
+    click_button "Submit"
+
+    expect("Test new").to appear_before("Test old")
+  end
 end
