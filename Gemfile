@@ -38,6 +38,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 4.0'
   gem 'orderly'
+  gem 'database_cleaner-active_record'
 end
 
 group :development do
