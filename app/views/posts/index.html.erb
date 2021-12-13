@@ -1,3 +1,9 @@
+<% if logged_in? %>
+<br>
+  Logged in as: <%= Current.user.email %>
+<br>
+<br>
+
 <div>
   <% @posts.each do |post| %>
     <div>
@@ -8,8 +14,5 @@
     </div><br>
   <% end %>
 </div>
-<br>
-<br>
-<%= link_to new_post_path do %>
-  New post
+
 <% end %>
