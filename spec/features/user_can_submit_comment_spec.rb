@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.feature "Timeline", type: :feature do
   scenario "Can comment on a post and view the comment" do
-    visit "/sign_ups"
+    visit "/"
+    click_link "Sign up"
     fill_in "user[email]", with: "feature@test.com"
     fill_in "user[password]", with: "password"
     fill_in "user[password_confirmation]", with: "password"
     click_button "Sign-up"
-    visit "/posts"
-    click_link "New post"
+    click_link "Add post"
     fill_in "Message", with: "Hello, world!"
     click_button "Submit"
     click_link "Hello, world!"

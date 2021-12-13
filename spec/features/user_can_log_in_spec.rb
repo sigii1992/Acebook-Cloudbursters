@@ -8,7 +8,7 @@ RSpec.feature "Login", type: :feature do
       fill_in "email", with: "example@example.com"
       fill_in "password", with: "password"
       click_button "Sign In"
-      expect(page).to have_content("Welcome to Acebook") # redirects to / page
+      expect(page).to have_content("Logged in as: example@example.com") # redirects to /posts page
     end
 
     scenario "An unregistered user will be redirected to the signup page" do
