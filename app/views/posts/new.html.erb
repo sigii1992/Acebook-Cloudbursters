@@ -1,10 +1,10 @@
 <% if logged_in? %>
-<%= form_for @post do |form| %>
-  <%= form.label :message %>
-  <%= form.text_field :message %>
-  <%= form.label :image %>
-  <%= form.file_field :image %>
+  <%= form_for @post do |form| %>
+    <%= form.label :message %>
+    <%= form.text_field :message %>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
 
-  <%= form.submit "Submit" %>
-<% end %>
+    <%= form.submit "Submit" %>
+  <% end %>
 <% end %>
