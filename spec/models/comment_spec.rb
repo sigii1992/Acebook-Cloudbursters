@@ -10,7 +10,8 @@ RSpec.describe Comment, type: :model do
   end
 
   it 'has a body instance variable' do
-    post = Post.create(message: "This is a message")
+    user = User.create(email: "test@test.com", password: "password", password_confirmation: "password")
+    post = Post.create(message: "This is a message", user: user)
     comment = Comment.create(body: "This is a body", post: post)
     expect(comment).to be_valid
   end
