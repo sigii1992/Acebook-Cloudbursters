@@ -29,4 +29,13 @@ RSpec.feature "Timeline", type: :feature do
 
     expect("Test new").to appear_before("Test old")
   end
+
+  scenario "A post can have an attached image" do
+    visit "/posts"
+    click_link "New post"
+    fill_in "Message", with: "This is a post message"
+    attach_file("post[image]", Rails.root + "spec/features/Test_images/test.png")
+    click_button "Submit"
+    expect(page.find('.image')['src']).to have_content('test.png')
+  end
 end
