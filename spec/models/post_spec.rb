@@ -9,4 +9,11 @@ RSpec.describe Post, type: :model do
     post.message = "This is a message"
     expect(post).to be_valid
   end
+
+  it 'has a user' do
+    user = User.create(email: "test@test.com", password: "password", password_confirmation: "password")
+    post = Post.new(message: "", user: user)
+    expect(post.user.email).to be "test@test.com"
+  end
+
 end
