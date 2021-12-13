@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <h2><%= @post.message %></h2>
 
 <% if @post.image.attached? %>
@@ -20,4 +21,5 @@
   <p>
     <%= form.submit %>
   </p>
+<% end %>
 <% end %>
