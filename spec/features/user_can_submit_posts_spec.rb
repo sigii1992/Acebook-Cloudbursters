@@ -58,4 +58,17 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect(page.find('.image')['src']).to have_content('test.png')
   end
+
+  scenario "Post displays the users email" do
+    visit "/sign_ups"
+    fill_in "user[email]", with: "feature@test.com"
+    fill_in "user[password]", with: "password"
+    fill_in "user[password_confirmation]", with: "password"
+    click_button "Sign-up"
+    visit "/posts/new"
+    fill_in "Message", with: "This is a post message"
+    click_button "Submit"
+    expect(page).to have_content("feature@test.com")
+  end
+  
 end

@@ -1,5 +1,7 @@
 <% if logged_in? %>
+  <%= @post.user.email %><br>
   <h2><%= @post.message %></h2>
+
 
   <% if @post.image.attached? %>
     <image class="image" src="<%=(url_for(@post.image))%>">
