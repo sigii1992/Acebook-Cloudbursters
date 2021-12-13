@@ -1,6 +1,7 @@
 <div>
   <% @posts.each do |post| %>
     <div>
+      <%= post.user.email %><br>
       <%= link_to post.message, post %><br>
       <% if post.image.attached? %>
         <image class="image" src="<%=(url_for(post.image))%>">
