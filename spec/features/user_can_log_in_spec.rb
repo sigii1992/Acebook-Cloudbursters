@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Login", type: :feature do
+RSpec.feature "Log_in", type: :feature do
     scenario "A registered user can login to their account" do
-      User.new(email: "example@example.com", password: "password", password_confirmation: "password").save
+      User.create(email: "example@example.com", password: "password", password_confirmation: "password")
       # Set up test database to contain user: example@example.com 
       visit "/log_in"
       fill_in "email", with: "example@example.com"
