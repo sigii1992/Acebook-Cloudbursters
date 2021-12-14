@@ -9,7 +9,7 @@ RSpec.feature "Log_out", type: :feature do
     fill_in "password", with: "password"
     click_button "Sign In"
 
-    click_button "Log out"
-    expect(page).to have_content("Logged out")
+    click_link "Log out"
+    expect(page).to have_content("Welcome to Acebook")
   end
 end
