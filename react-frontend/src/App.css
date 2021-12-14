@@ -17,6 +17,8 @@
 }
 
 .services {
+  /* background-image: url('/react-frontend/src/images/img-2.jpeg');
+  background-image: url('/react-frontend/src/images/img-3.jpeg'); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,6 +27,7 @@
 }
 
 .products {
+  /* background-image: url('/react-frontend/src/images/img-1.jpeg'); */
   background-position: center;
   background-size: fill;
   background-repeat: no-repeat;
@@ -33,10 +36,10 @@
 }
 
 .sign-up {
+  /* background-image: url('/react-frontend/src/images/img-8.jpeg'); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
 }
-

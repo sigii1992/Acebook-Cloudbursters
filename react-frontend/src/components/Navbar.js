@@ -24,6 +24,7 @@ function Navbar() {
     }, []);
 
     window.addEventListener('resize', showButton);
+
     return (
         <>
             <nav className="navbar">
@@ -56,6 +57,7 @@ function Navbar() {
                         </li>
                         <li className='nav-item'>
                             <Link to='/sign-up'className='nav-links-mobile' onClick={closeMobileMenu}>
+                                
                                 Sign Up
                             </Link>
                         </li>
