@@ -1,6 +1,13 @@
+<% if logged_in? %>
+<br>
+  Logged in as: <%= Current.user.email %>
+<br>
+<br>
+
 <div>
   <% @posts.each do |post| %>
     <div>
+      <%= post.user.email %><br>
       <%= link_to post.message, post %><br>
       <% if post.image.attached? %>
         <image class="image" src="<%=(url_for(post.image))%>">
@@ -8,8 +15,5 @@
     </div><br>
   <% end %>
 </div>
-<br>
-<br>
-<%= link_to new_post_path do %>
-  New post
+
 <% end %>

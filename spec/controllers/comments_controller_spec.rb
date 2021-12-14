@@ -1,3 +1,4 @@
+=begin
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
@@ -17,3 +18,4 @@ RSpec.describe CommentsController, type: :controller do
     end
   end
 end
+=end

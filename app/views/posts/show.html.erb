@@ -1,23 +1,27 @@
-<h2><%= @post.message %></h2>
+<% if logged_in? %>
+  <%= @post.user.email %><br>
+  <h2><%= @post.message %></h2>
 
-<% if @post.image.attached? %>
-  <image class="image" src="<%=(url_for(@post.image))%>">
-<% end %>
 
-<h3>Comments</h3>
-<% @post.comments.each do |comment| %>
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
+  <% if @post.image.attached? %>
+    <image class="image" src="<%=(url_for(@post.image))%>">
+  <% end %>
 
-<h3>Add a comment:</h3>
-<%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
-  <p>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+  <h3>Comments</h3>
+    <% @post.comments.each do |comment| %>
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.body %>
+      </p>
+    <% end %>
+
+  <h3>Add a comment:</h3>
+    <%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
+      <p>
+        <%= form.text_area :body %>
+      </p>
+      <p>
+        <%= form.submit %>
+      </p>
+    <% end %>
 <% end %>
