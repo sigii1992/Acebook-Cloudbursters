@@ -1,11 +1,13 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import './App.css';
 import Home from './components/pages/Home';
-import Services from './components/pages/Services';
+import About from './components/pages/About';
 import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
+import Footer from './components/Footer';
+import ErrorPage from './components/pages/ErrorPage';
 
 function App() {
   return (
@@ -13,16 +15,14 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-          <Route path='/' exact component={Home} />
-          {/* <Home /> */}
-          <Route path='/services' component={Services} />
-          {/* <Services /> */}
-          <Route path='/products' component={Products} />
+          <Route path='/' element={<Home/>} />
+        
+          <Route path='/about' element={<About/>} />
+         
+          <Route path='/products' element={<Products/>} />
           {/* <Products /> */}
-          <Route path='/sign-up' component={SignUp} />
-          {/* <SignUp /> */}
-          {/* <Route path='/log-in' component={LogIn} />
-          <Login /> */}
+          <Route path='/sign-up' element={<SignUp/>} />
+          <Route path="*" element={<ErrorPage/>} />
       </Routes>
 
     </Router>
