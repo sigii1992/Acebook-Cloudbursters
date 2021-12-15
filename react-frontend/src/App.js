@@ -30,15 +30,5 @@ function App() {
   );
 }
 
-fetch('http://localhost:3000/api/v1/posts')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-    data.data.forEach(post => {
-      console.log('hello')
-      console.log(post)
-      // post.message
-  })
-});
 
 export default App;
