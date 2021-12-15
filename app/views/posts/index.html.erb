@@ -3,7 +3,7 @@
   Logged in as: <%= Current.user.email %>
 <br>
   <%if Current.user.avatar.attached? %>
-    <image class="image" src="<%=(url_for(Current.user.avatar))%>" >
+    <%=image_tag Current.user.avatar.variant(:thumb) %>
   <%end%>
 <br>
 

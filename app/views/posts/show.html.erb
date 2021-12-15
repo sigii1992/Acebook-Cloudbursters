@@ -3,8 +3,7 @@
   <h2><%= @post.message %></h2>
 
   <%if @post.user.avatar.attached? %>
-    <%"Whats Up" %>
-    <image src="<%=(url_for(@post.user.avatar))%>" >
+    <%= image_tag @post.user.avatar.variant(:thumb) %>
   <%end%>
 
 
