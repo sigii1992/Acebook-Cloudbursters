@@ -8,6 +8,7 @@ import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
 import Footer from './components/Footer';
 import ErrorPage from './components/pages/ErrorPage';
+import Posts from './components/pages/Posts';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           {/* <Products /> */}
           <Route path='/sign-up' element={<SignUp/>} />
           <Route path="*" element={<ErrorPage/>} />
+          <Route path='/posts' element={<Posts/>} />
       </Routes>
 
     </Router>
@@ -30,5 +32,20 @@ function App() {
   );
 }
 
+fetch('http://localhost:3000/api/v1/posts')
+  .then(response => response.json())
+  .then(response => {
+    console.log(response)
+    response.data.forEach(post => {
+      const div = document.createElement('div')
+      div.className = 'posts'
+      div.innerText = post.message
+      document.body.append(div)
+   // response.data.forEach(post => {
+     // console.log('hello')
+      // console.log(post)
+      // post.message
+  })
+});
 
 export default App;
