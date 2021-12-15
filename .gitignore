@@ -23,4 +23,7 @@
 .byebug_history
 
 # Ignore all storage files
-/storage
+storage/
+
+# Ignore all the coverage files
+coverage/
