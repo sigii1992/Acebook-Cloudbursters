@@ -82,7 +82,7 @@ RSpec.feature "Timeline", type: :feature do
     click_link "Add post"
     fill_in "Message", with: "This is a post message"
     click_button "Submit"
-    expect(page.find('.avatar')['src']).to have_content('Cat_2.png')
+    expect(page.find('.avatar-index')['src']).to have_content('Cat_2.png')
     
   end
   
