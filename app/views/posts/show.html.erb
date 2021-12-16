@@ -3,7 +3,7 @@
   <h2><%= @post.message %></h2>
 
   <%if @post.user.avatar.attached? %>
-    <%= image_tag @post.user.avatar, id: 'avatar', class: 'avatar' %>
+    <%= image_tag @post.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
   <%end%>
 
   <br>
