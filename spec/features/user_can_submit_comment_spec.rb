@@ -30,6 +30,6 @@ RSpec.feature "Timeline", type: :feature do
     click_link "Hello, world!"
     fill_in "comment[body]", with: "This is a comment"
     click_button "Create Comment"
-    expect(page).to have_content("Comment from: feature@test.com")
+    expect(page).to have_content("feature@test.com commented:")
   end
 end
