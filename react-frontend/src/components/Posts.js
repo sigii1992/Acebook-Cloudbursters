@@ -36,13 +36,3 @@ const Posts = () => {
 };
 
 export default Posts;
-
-    // Text box for posting a post
-    //   <div class="post-form">
-    //     <form action="/posts/new" method="POST">
-    //       <label for="body">New Post</label>
-    //       <textarea id="postBody" cols="50" rows="10" name="body" oninput="countCharacters(event)"></textarea>
-    //     <div>characters left:<span id="charactersLeft">500</span></div>
-    //       <button type="submit">Save</button>
-    //     </form>
-    // </div>

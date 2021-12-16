@@ -13,13 +13,10 @@ module Api
       end
 
       def create
-        @user = User.find_by(id: session[:user_id])
+        @user = User.find_by(id: 1)
         post = @user.posts.create(message: params[:message])
-        if post.save
-          render json: post, status: :created
-        else
-          render json: post.errors, status: :unproccessable_entity
-        end
+
+        redirect_to posts_url
       end
 
     end
