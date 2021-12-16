@@ -22,7 +22,10 @@
   <h3>Comments</h3>
     <% @post.comments.each do |comment| %>
       <p>
-        <strong>Comment from: <%= comment.user.email %></strong><br>
+      <%if comment.user.avatar.attached? %>
+      <%= image_tag comment.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
+      <%end%>
+        <strong><%= comment.user.email %> commented:</strong><br>
         <%= comment.body %>
       </p>
     <% end %>
