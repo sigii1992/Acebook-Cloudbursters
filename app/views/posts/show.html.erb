@@ -1,13 +1,11 @@
 <% if logged_in? %>
   <br>
   <h2><%= @post.message %></h2>
-
   <%if @post.user.avatar.attached? %>
     <%= image_tag @post.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
   <%end%>
-
+  <%= @post.user.email %>
   <br>
-  <%= @post.user.email %><br>
   <% if @post.image.attached? %>
     <image class="image" src="<%=(url_for(@post.image))%>">
   <% end %>
