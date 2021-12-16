@@ -1,21 +1,37 @@
-<h1>Sign-up</h1>
-<%= form_with model: @user, url: sign_ups_path, local: true do |form| %>
-  <div>
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
+<section class="vh-100 bg-image">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5 text-center">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+              <div class="form align-items-center text-left">
+              <%= form_with model: @user, url: sign_ups_path, local: true do |form| %>
+                <div class="email">
+                  <%= form.text_field :email, class: "form-control form-control-lg", placeholder: "Email" %>
+                </div><br>
+                <div class="password-field">
+                  <%= form.password_field :password, class: "form-control form-control-lg", placeholder: "Password" %>
+                </div><br>
+                <div class="password-field">
+                  <%= form.password_field :password_confirmation, class: "form-control form-control-lg" , placeholder: "Confirm your password" %>
+                </div><br>
+                <div class="avatar">
+                  <%= form.file_field :avatar, class: "form-control form-control-lg" %>
+                </div><br>
 
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+                <div class="">
+                  <%= form.submit "Sign-up", class: "btn btn-lg btn-dark"%>
+                </div><br>
+              <% end %>
+             </div>
+                <p class="text-center text-muted mt-5 mb-0">If you already have an account <a href="/log_in" class="fw-bold text-body"><u>login here!</u></a></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
-  <div>
-    <%= form.submit "Sign-up"%>
-  </div>
-<% end %>
+</section>
