@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import '../App.css';
 import './Posts.css';
+import CreatePost from './CreatePost';
 
 const Posts = () => {
   const [posts, setData] = useState([]);
@@ -24,7 +25,7 @@ const Posts = () => {
 
   return (
     <div class='all_posts'>
-      {posts.map((post, index) => (
+      {posts.reverse().map((post, index) => (
         <div class='posts'>
         <p class='post_message'>{post.message}</p>
         <br></br>
