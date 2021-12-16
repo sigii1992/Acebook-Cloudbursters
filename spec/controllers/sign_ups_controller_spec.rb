@@ -14,7 +14,7 @@ RSpec.describe SignUpsController, type: :controller do
       expect(response).to redirect_to(posts_url)
     end
 
-    it "creates a post" do
+    it "creates a user" do
       post :create, params: { user: { email: "example@example.com", password: "password", password_confirmation: "password" } }
       expect(User.find_by(email: "example@example.com")).to be
     end
