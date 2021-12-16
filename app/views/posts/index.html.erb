@@ -2,6 +2,9 @@
 <br>
   Logged in as: <%= Current.user.email %>
 <br>
+  <%if Current.user.avatar.attached? %>
+    <%=image_tag Current.user.avatar, id: 'avatar', class: 'avatar' %>
+  <%end%>
 <br>
 
 <div>
