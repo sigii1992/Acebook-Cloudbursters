@@ -70,5 +70,20 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect(page).to have_content("feature@test.com")
   end
+
+  scenario "A post has the user who posted it avatar attached to it" do
+    visit "/"
+    click_link "Sign up"
+    fill_in "user[email]", with: "feature@test.com"
+    attach_file("user[avatar]", Rails.root + "spec/features/Test_images/Cat_2.png")
+    fill_in "user[password]", with: "password"
+    fill_in "user[password_confirmation]", with: "password"
+    click_button "Sign-up"
+    click_link "Add post"
+    fill_in "Message", with: "This is a post message"
+    click_button "Submit"
+    expect(page.find('.avatar')['src']).to have_content('Cat_2.png')
+    
+  end
   
 end
