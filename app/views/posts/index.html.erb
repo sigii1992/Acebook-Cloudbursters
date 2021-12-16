@@ -3,7 +3,7 @@
   Logged in as: <%= Current.user.email %>
 <br>
   <%if Current.user.avatar.attached? %>
-    <%=image_tag Current.user.avatar, id: 'avatar', class: 'avatar' %>
+    <%=image_tag Current.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
   <%end%>
 <br>
 
