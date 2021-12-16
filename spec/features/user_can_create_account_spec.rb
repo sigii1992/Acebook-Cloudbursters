@@ -22,7 +22,7 @@ RSpec.feature "Sign_up", type: :feature do
     click_button "Sign-up"
 
     expect(page).to have_content("Logged in as: feature@test.com")
-    expect(page.find('.avatar')['src']).to have_content('Cat_2.png')
+    expect(page.find('.avatar-index')['src']).to have_content('Cat_2.png')
   end
 
 
