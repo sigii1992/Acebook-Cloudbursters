@@ -3,7 +3,7 @@
   <h2><%= @post.message %></h2>
 
   <%if @post.user.avatar.attached? %>
-    <%= image_tag @post.user.avatar, id: 'avatar', class: 'avatar' %>
+    <%= image_tag @post.user.avatar.variant(:thumb), class: "avatar", id: "avatar"  %>
   <%end%>
 
   <br>
