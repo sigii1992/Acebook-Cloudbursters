@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'rack-cors'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -39,6 +41,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0'
   gem 'orderly'
   gem 'database_cleaner-active_record'
+end
+
+group :test do
+  gem 'simplecov'
 end
 
 group :development do

@@ -15,6 +15,7 @@
       <% if post.image.attached? %>
         <image class="image" src="<%=(url_for(post.image))%>">
       <% end %>
+      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
     </div><br>
   <% end %>
 </div>

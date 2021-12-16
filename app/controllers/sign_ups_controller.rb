@@ -8,7 +8,7 @@ class SignUpsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to posts_path, :flash => { :notice => "Successfully created account!" } 
+      redirect_to posts_path
     else
       render :new
     end

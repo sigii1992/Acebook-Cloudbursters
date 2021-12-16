@@ -12,6 +12,13 @@ module Api
         render json: {status: 'SUCCESS', message: 'Loaded posts', data:post },status: :ok
       end
 
+      def create
+        @user = User.find_by(id: 1)
+        post = @user.posts.create(message: params[:message])
+
+        redirect_to posts_url
+      end
+
     end
   end
 end
