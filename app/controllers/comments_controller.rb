@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :set_post
 
   def create
+    @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     @comment.user_id = set_current_user.id
     @comment.save
@@ -11,10 +11,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :post_id, :user_id)
-  end
-
-  def set_post
-    @post = Post.find(params[:post_id])
+    params.require(:comment).permit(:body)
   end
 end
