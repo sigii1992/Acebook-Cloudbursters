@@ -18,6 +18,8 @@ First, clone this repository. Then:
 > bundle exec rspec # Run the tests to ensure it works
 > bin/rails server # Start the server at localhost:3000
 ```
+You will also need to install Imagemagik directly.
+`brew install imagemagick`
 
 ## Troubleshooting
 
