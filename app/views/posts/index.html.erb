@@ -20,12 +20,13 @@ body {
 }
 </style>
 <% if logged_in? %>
-<br>
-  Logged in as: <%= Current.user.email %>
-<br>
+<table class="table">
   <%if Current.user.avatar.attached? %>
     <%=image_tag Current.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
   <%end%>
+  Logged in as: <%= Current.user.email %>
+</table>
+
 <br>
 
 <div class="container mt-4 mb-5">
@@ -57,4 +58,5 @@ body {
         </div>
     </div>
 </div>
+
 

@@ -27,3 +27,5 @@ storage/
 
 # Ignore all the coverage files
 coverage/
+
+/config/master.key
