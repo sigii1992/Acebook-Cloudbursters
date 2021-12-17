@@ -6,10 +6,15 @@
     <%=image_tag Current.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
   <%end%>
 <br>
+<br>
+<br>
 
 <div>
   <% @posts.each do |post| %>
     <div>
+      <%if post.user.avatar.attached? %>
+        <%= image_tag post.user.avatar, class: "avatar rounded-circle mx-auto", style: "width: 95px" %>
+      <%end%>
       <%= post.user.email %><br>
       <%= link_to post.message, post %><br>
       <% if post.image.attached? %>
