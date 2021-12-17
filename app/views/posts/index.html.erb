@@ -1,3 +1,24 @@
+<style>
+body {
+    background-color: #eee
+}
+
+.time {
+    font-size: 9px !important
+}
+
+.socials i {
+    margin-right: 14px;
+    font-size: 17px;
+    color: #d2c8c8;
+    cursor: pointer
+}
+
+.feed-image img {
+    width: 100%;
+    height: auto
+}
+</style>
 <% if logged_in? %>
 <table class="table">
   <%if Current.user.avatar.attached? %>
@@ -7,23 +28,35 @@
 </table>
 
 <br>
-<br>
-<br>
 
-<table class="table-info">
-  <% @posts.each do |post| %>
-    <tr>
-      <% if post.user.avatar.attached? %> 
-      <%=image_tag post.user.avatar.variant(:icon), class: "avataricon" %>
-      <%end%>
-      <%= post.user.email %><br>
-      <%= link_to post.message, post %><br>
-      <% if post.image.attached? %>
-        <image class="image" src="<%=(url_for(post.image.variant(resize_to_limit: [400, 400])))%>">
-      <% end %>
-      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-      </tr>
-  <% end %>
-</table>
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-8">
+            <div class="feed p-2">   <!-- this is all the feeds -->
+              <% @posts.each do |post| %>
+                <div class="bg-white border mt-2"> <!-- post div style here? -->
+                <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                  <div class="d-flex flex-row align-items-center feed-image p-2 px-3 feed-text px-2">  
+                     <%if post.user.avatar.attached? %>
+                    <%= image_tag post.user.avatar, class: "avatar rounded-circle img-fluid img-responsive mx-auto d-flex flex-row align-items-center feed-text text-left px-2", style: "width: 45px"%>
+                    <%end%>
+                    <%= post.user.email %><br>
+                  </div>
+                </div>
+                <div class="feed-image p-2 px-5">
+                  <%= link_to post.message, post %><br>
+                  <% if post.image.attached? %>
+                    <image class="image img-fluid img-responsive align-items-" src="<%=(url_for(post.image))%>" style="width: 1000px" >
+                  <% end %>
+                  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                  </div>
+                </div><br>
+              <% end %>
+            </div>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>
 
-<% end %>
+
