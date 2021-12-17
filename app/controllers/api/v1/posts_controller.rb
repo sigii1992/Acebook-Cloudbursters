@@ -7,11 +7,6 @@ module Api
         render json: {status: 'SUCCESS', message: 'Loaded posts', data:posts },status: :ok
       end
 
-      def show
-        post = Post.find(params[:id])
-        render json: {status: 'SUCCESS', message: 'Loaded posts', data:post },status: :ok
-      end
-
       def create
         @user = User.last
         post = @user.posts.create(message: params[:message])

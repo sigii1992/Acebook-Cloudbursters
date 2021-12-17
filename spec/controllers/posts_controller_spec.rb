@@ -33,7 +33,12 @@ end
 RSpec.describe "API V1 Post", type: 'request' do
   describe "POST /api/v1/posts" do
 
-    it "creates a new post" do
+    it "GET /posts" do
+      get '/api/v1/posts'
+      expect(response).to have_http_status(200)
+    end
+
+    it "POST /posts" do
       user = User.create(email: "example@example.com", password: "password", password_confirmation: "password")
       post '/api/v1/posts', params: { post: { message: "Hello, world!"}}
       expect(response).to have_http_status(200)
