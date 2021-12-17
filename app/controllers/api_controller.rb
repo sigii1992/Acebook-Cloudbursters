@@ -6,12 +6,7 @@ class ApiController < ActionController::API
 
   def set_current_user
     if session[:user_id]
-      Current.user = User.find_by(id: session[:user_id])
     end
-  end
-
-  def logged_in?
-    !set_current_user.nil?
   end
 
 end

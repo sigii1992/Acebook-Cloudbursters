@@ -19,7 +19,7 @@
 
   <h3>Comments</h3>
     <% @post.comments.each do |comment| %>
-      <section class="vh-100 bg-image">
+      <section class="">
         <%if comment.user.avatar.attached? %>
           <%= image_tag comment.user.avatar.variant(:icon), class: "avataricon" %>
         <%end%>
