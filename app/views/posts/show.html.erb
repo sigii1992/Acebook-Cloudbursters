@@ -1,10 +1,10 @@
 <% if logged_in? %>
   <section>
-  <h2><%= @post.message %></h2>
-  <%if @post.user.avatar.attached? %>
+    <%if @post.user.avatar.attached? %>
     <%= image_tag @post.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
   <%end%>
-  <%= @post.user.email %>
+   <%= @post.user.email %>
+  <h2><%= @post.message %></h2>
   <% if @post.image.attached? %>
     <image class="image" src="<%=(url_for(@post.image.variant(resize_to_limit: [400, 400])))%>">
   <% end %>
@@ -21,7 +21,7 @@
     <% @post.comments.each do |comment| %>
       <section class="vh-100 bg-image">
         <%if comment.user.avatar.attached? %>
-          <%= image_tag @post.user.avatar.variant(:icon), class: "avataricon" %>
+          <%= image_tag comment.user.avatar.variant(:icon), class: "avataricon" %>
         <%end%>
         <strong>Comment from: <%= comment.user.email %></strong><br>
         <%= comment.body %>
