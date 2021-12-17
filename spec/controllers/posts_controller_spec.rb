@@ -29,3 +29,15 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 end
+
+RSpec.describe "API V1 Post", type: 'request' do
+  describe "POST /api/v1/posts" do
+
+    it "creates a new post" do
+      user = User.create(email: "example@example.com", password: "password", password_confirmation: "password")
+      post '/api/v1/posts', params: { post: { message: "Hello, world!"}}
+      expect(response).to have_http_status(200)
+    end
+
+  end
+end
