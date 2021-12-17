@@ -1,11 +1,10 @@
 <% if logged_in? %>
-<section>
-  <%if @post.user.avatar.attached? %>
-    <%= image_tag @post.user.avatar.variant(:thumb), class: "avatarthumb", id: "avatar"  %>
-  <%end%>
-
-  <%= @post.user.email %><br>
+  <section>
   <h2><%= @post.message %></h2>
+  <%if @post.user.avatar.attached? %>
+    <%= image_tag @post.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
+  <%end%>
+  <%= @post.user.email %>
   <% if @post.image.attached? %>
     <image class="image" src="<%=(url_for(@post.image.variant(resize_to_limit: [400, 400])))%>">
   <% end %>

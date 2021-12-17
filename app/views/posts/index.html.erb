@@ -1,11 +1,13 @@
 <% if logged_in? %>
 <table class="table">
   <%if Current.user.avatar.attached? %>
-    <%=image_tag Current.user.avatar.variant(:thumb), id: 'avatar', class: 'avatar' %>
+    <%=image_tag Current.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
   <%end%>
   Logged in as: <%= Current.user.email %>
 </table>
 
+<br>
+<br>
 <br>
 
 <table class="table-info">
