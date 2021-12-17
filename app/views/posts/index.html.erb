@@ -1,28 +1,29 @@
 <% if logged_in? %>
-<br>
-  Logged in as: <%= Current.user.email %>
-<br>
+<table class="table">
   <%if Current.user.avatar.attached? %>
     <%=image_tag Current.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
   <%end%>
+  Logged in as: <%= Current.user.email %>
+</table>
+
 <br>
 <br>
 <br>
 
-<div>
+<table class="table-info">
   <% @posts.each do |post| %>
-    <div>
-      <%if post.user.avatar.attached? %>
-        <%= image_tag post.user.avatar, class: "avatar rounded-circle mx-auto", style: "width: 95px" %>
+    <tr>
+      <% if post.user.avatar.attached? %> 
+      <%=image_tag post.user.avatar.variant(:icon), class: "avataricon" %>
       <%end%>
       <%= post.user.email %><br>
       <%= link_to post.message, post %><br>
       <% if post.image.attached? %>
-        <image class="image" src="<%=(url_for(post.image))%>">
+        <image class="image" src="<%=(url_for(post.image.variant(resize_to_limit: [400, 400])))%>">
       <% end %>
       <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-    </div><br>
+      </tr>
   <% end %>
-</div>
+</table>
 
 <% end %>
