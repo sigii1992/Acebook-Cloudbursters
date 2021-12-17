@@ -1,39 +1,66 @@
-<% if logged_in? %>
-  <section>
-    <%if @post.user.avatar.attached? %>
-    <%= image_tag @post.user.avatar, class: "avatar-index rounded-circle mx-auto", style: "width: 95px" %>
-  <%end%>
-   <%= @post.user.email %>
-  <h2><%= @post.message %></h2>
-  <% if @post.image.attached? %>
-    <image class="image" src="<%=(url_for(@post.image.variant(resize_to_limit: [400, 400])))%>">
-  <% end %>
-  <% pre_like = @post.likes.find { |like| like.user_id == set_current_user.id} %>
-  <% if pre_like %>
-    <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
-  <% else %>
-    <%= button_to 'Like', post_likes_path(@post), method: :post %>
-  <% end %>
-  <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
-  </section>
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-8">
+            <section>
+            <% if logged_in? %>
+            <div class="feed p-2">   <!-- this is all the feeds -->
+              
+                <div class="bg-white border mt-2"> <!-- post div style here? -->
+                <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                  <div class="d-flex flex-row align-items-center feed-image p-2 px-3 feed-text px-2">  
+                     <%if @post.user.avatar.attached? %>
+                    <%= image_tag @post.user.avatar, class: "avatar rounded-circle img-fluid img-responsive mx-auto d-flex flex-row align-items-center feed-text text-left px-2", style: "width: 45px"%>
+                    <%end%>
+                    <%= @post.user.email %><br>
+                  </div>
+                </div>
+                <div class="feed-image p-2 px-5">
+                  <%= @post.message %><br>
+                  <% if @post.image.attached? %>
+                    <image class="image img-fluid img-responsive align-items-" src="<%=(url_for(@post.image))%>" style="width: 1000px" >
+                  <% end %>
+                  <br>
+                  <p>
+                  <% pre_like = @post.likes.find { |like| like.user_id == set_current_user.id} %>
+                    <% if pre_like %>
+                      <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, class: "btn btn-lg btn-dark" %>
+                    <% else %>
+                      <%= button_to 'Like', post_likes_path(@post), method: :post, class: "btn btn-lg btn-dark" %>
+                    <% end %>
+                    <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
+                    </p>
+                  
+                    <h3>Comments</h3>
+                    <div class="container-fluid">
+                    <% @post.comments.each do |comment| %>
+                      <section>
+                        <%if comment.user.avatar.attached? %>
+                          <%= image_tag comment.user.avatar.variant(:icon), class: "avataricon" %>
+                        <%end%>
+                        <strong>Comment from: <%= comment.user.email %></strong><br>
+                        <%= comment.body %>
+                      </section>
+                      <br>
+                    <% end %>
+                    </div>
+                    <br>
+                    <h3>Add a comment:</h3>
+                    <%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
+                      <p>
+                        <%= form.text_area :body, class: "form-control form-control-lg", rows: "5"%>
+                      </p>
+                      <p>
+                        <%= form.submit class: "btn btn-lg btn-dark"%>
+                      </p>
+                    <% end %>
 
-  <h3>Comments</h3>
-    <% @post.comments.each do |comment| %>
-      <section class="">
-        <%if comment.user.avatar.attached? %>
-          <%= image_tag comment.user.avatar.variant(:icon), class: "avataricon" %>
-        <%end%>
-        <strong>Comment from: <%= comment.user.email %></strong><br>
-        <%= comment.body %>
-      </section>
-    <% end %>
-    <h3>Add a comment:</h3>
-    <%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
-      <p>
-        <%= form.text_area :body %>
-      </p>
-      <p>
-        <%= form.submit %>
-      </p>
-    <% end %>
-<% end %>
+                  </div>
+                </div><br>
+            </div>
+            <% end %>
+            </div>
+            </section>
+        </div>
+    </div>
+</div>
+
