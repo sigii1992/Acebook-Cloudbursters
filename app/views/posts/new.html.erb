@@ -1,10 +1,35 @@
-<% if logged_in? %>
-  <%= form_for @post, local: true do |form| %>
-    <%= form.label :message %>
-    <%= form.text_field :message %>
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+<section class="vh-100 bg-image">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5 text-center">
+              <h2 class="text-uppercase text-center mb-5">Add a new post</h2>
+              <div class="form align-items-center text-left">
+           
+              <% if logged_in? %>
+              <%= form_for @post, local: true do |form| %>
+                <div class="message">
+                  <%= form.text_area:message , class: "form-control form-control-lg", rows: "5" , placeholder: "What is in your mind?" %>
+                </div><br>
+                <div class="image">
+                <p class="text-left text-muted">Choose an image</p>
+                  <%= form.file_field :image, class: "form-control form-control-lg" %>
+                </div><br>
+                  <%= form.submit "Submit", class: "btn btn-lg btn-dark"%>
+                <br>
+              <% end %>
+              <% end %>
+             </div>
+                <p class="text-center text-muted mt-5 mb-0">Go back to <a href="/posts" class="fw-bold text-body"><u>POSTS!</u></a></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <%= form.submit "Submit" %>
-  <% end %>
-<% end %>
+
