@@ -23,14 +23,15 @@
                   <p>
                   <% pre_like = @post.likes.find { |like| like.user_id == set_current_user.id} %>
                     <% if pre_like %>
-                      <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+                      <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, class: "btn btn-lg btn-dark" %>
                     <% else %>
-                      <%= button_to 'Like', post_likes_path(@post), method: :post %>
+                      <%= button_to 'Like', post_likes_path(@post), method: :post, class: "btn btn-lg btn-dark" %>
                     <% end %>
                     <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
                     </p>
                   
                     <h3>Comments</h3>
+                    <div class="container-fluid">
                     <% @post.comments.each do |comment| %>
                       <section>
                         <%if comment.user.avatar.attached? %>
@@ -39,33 +40,33 @@
                         <strong>Comment from: <%= comment.user.email %></strong><br>
                         <%= comment.body %>
                       </section>
+                      <br>
                     <% end %>
+                    </div>
+                    <br>
                     <h3>Add a comment:</h3>
                     <%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
                       <p>
-                        <%= form.text_area :body %>
+                        <%= form.text_area :body, class: "form-control form-control-lg", rows: "5"%>
                       </p>
                       <p>
-                        <%= form.submit %>
+                        <%= form.submit class: "btn btn-lg btn-dark"%>
                       </p>
                     <% end %>
-
 
                   </div>
                 </div><br>
             </div>
             <% end %>
             </div>
-
-            
-
             </section>
         </div>
     </div>
 </div>
 
 
-<%# comment section starts here %>
+
+
 
 
 
